@@ -1,17 +1,18 @@
-# LoveFangBaby-30Days
-给宝宝恋爱纪念日的浪漫礼物
+# LoveBaby
+https://demngayyeu.github.io/love-tree/
+Món quà lãng mạn cho ngày kỷ niệm tình yêu của bé
 ===========================
 
-页面总体设计
+Thiết kế trang tổng thể
 ------------
-WEB分为4个页面 ①身份验证页 ②身份404页 ③爱心信件页 ④礼物照片页
+WEB được chia thành 4 trang, trang xác minh danh tính, trang 404 trang, trang thư, trang ảnh
 
-页面必要说明
+Mô tả trang bắt buộc
 ------------
-原型来源于网络前辈的轮子 自己水平菜 进行了简单整合
-*身份验证页直接把账号密码设置在了Js函数里，没有用数据库
-*爱心信件页 更替了原有的倒计时，因为会出错
-*爱心信件&礼物照片 页面中为了满足不同设备自动播放音频的需求，弄了一个很丑的Button
+Nguyên mẫu bắt nguồn từ bánh xe của những người tiền nhiệm của Internet và nó rất đơn giản để tích hợp.
+* Trang xác thực đặt trực tiếp mật khẩu tài khoản trong hàm Js, không sử dụng cơ sở dữ liệu
+* Trang thư tình thay thế đếm ngược ban đầu vì sẽ mắc lỗi
+* Để đáp ứng nhu cầu của các thiết bị khác nhau để tự động phát âm thanh trên trang ảnh thư tình & quà tặng, một nút rất xấu xí đã được thực hiện
 
 
-这次准备太仓促了hhh 以后一定要好好学习下WEB开发 不能这么水了😵
+Lần này chuẩn bị vội vàng quá hhh, sau này phải nghiên cứu kỹ về việc phát triển WEB, không thể chảy nước miếng như vậy được 😵
