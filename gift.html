@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link href="https://cdn.bootcss.com/font-awesome/5.8.0/css/all.css" rel="stylesheet" />
+  <title>Món quà nhỏ cho Em</title>
+  <style>
+    body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      background: url('bg.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .box {
+      width: 450px;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 40px;
+      text-align: center;
+      color: white;
+      font-family: 'Century Gothic', sans-serif;
+    }
+
+    .box-img {
+      border-radius: 50%;
+      width: 200px;
+      height: 200px;
+    }
+
+    .box h1 {
+      font-size: 40px;
+      letter-spacing: 4px;
+      font-weight: 100;
+    }
+
+    .box h5 {
+      font-size: 20px;
+      letter-spacing: 3px;
+      font-weight: 100;
+    }
+
+    .box p {
+      text-align: justify;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box li {
+      display: inline-block;
+      margin: 6px;
+      list-style: none;
+    }
+
+    .box li a {
+      color: white;
+      text-decoration: none;
+      font-size: 60px;
+      transition: all ease-in-out 250ms;
+    }
+
+    .box li a:hover {
+      color: #b9b9b9;
+    }
+  </style>
+</head>
+
+<body>
+  <!--Quà-->
+  <div class="box">
+    <img src="gift.jpg" alt="" class="box-img" />
+    <h1>💞 Baby</h1>
+    <h5>Mãi yêu bae💖</h5>
+    <p>
+      &emsp;&emsp;Hahahahaha đừng nói gì nữa
+      <br>
+      &emsp;&emsp;Đạo đức giả, anh thích em rất nhiều ❗
+      <br>
+      &emsp;&emsp;30 ngày nói dài không dài, nói ngắn chẳng ngắn, anh không biết em cảm thấy thế nào 😜
+      <br>
+      &emsp;&emsp;Cảm ơn em đã cho anh bước vào thế giới của em, Yêu em💖
+      <br>
+      &emsp;&emsp;em cũng được chào đón đến thăm thế giới của anh, em có còn thích món quà nhỏ này không hh
+      <br>
+      &emsp;&emsp;Trong tương lai, hãy cầu nguyện để được Chúa chăm sóc, trong Ngài, tình yêu thương sẽ không bao giờ ngừng ce
+      <br>
+      &emsp;&emsp;anh sẽ tiếp tục làm việc chăm chỉ cho hiện tại, tương lai và quá khứ
+      <br>
+      &emsp;&emsp;Cùng nhau cổ vũ nhé ↖ (^ ω ^) ↗
+      <br>
+      &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;2021.03.23
+      <br>
+      <br>
+      <br>
+      <! - Phát nhạc tại đây ->
+      <audio id='audio' src='love.mp3' loop></audio>
+      <button id='status' visible="false" onclick='triggerBgMusic()'>Nút phát</button>
+    </p>
+  </div>
+</body>
+<script>
+ // ---------- Khởi tạo trang nhạc nền ------------ Được sử dụng để giải quyết vấn đề tự động phát của safari và Chrome
+   // Giải pháp đến từ https://blog.csdn.net/joyce_lcy/article/details/79347383?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control&dist_request_id=&depthource_1-utist_request_riblevantsource=dist_distth_1. none -task-blog-BlogCommendFromMachineLearnPai2-2.control  var audio = document.getElementById('audio');
+  if (sessionStorage.bgmusic == 'pause') {
+    playBgMusic(false);
+  } else {
+    playBgMusic(true);
+    // ---------- Xử lý tự động phát ------------
+     // - Tạo trình giám sát trang, đợi trang WeChat tải và kích hoạt phát lại âm thanh
+    document.addEventListener('DOMContentLoaded', function () {
+      function audioAutoPlay() {
+        playBgMusic(true);
+        document.addEventListener("WeixinJSBridgeReady", function () {
+          playBgMusic(true);
+        }, false);
+      }
+      audioAutoPlay();
+    });
+    // - Tạo màn hình cảm ứng, khi trình duyệt mở trang, chạm vào màn hình để kích hoạt sự kiện và thực hiện phát lại âm thanh
+    function audioAutoPlay() {
+      playBgMusic(true);
+      document.removeEventListener('touchstart', audioAutoPlay);
+    }
+    document.addEventListener('touchstart', audioAutoPlay);
+  }
+  // ---------- Quy trình kích hoạt trang ------------
+  var hiddenProperty = 'hidden' in document ? 'hidden' :
+    'webkitHidden' in document ? 'webkitHidden' :
+    'mozHidden' in document ? 'mozHidden' :
+    null;
+  var visibilityChangeEvent = hiddenProperty.replace(/hidden/i, 'visibilitychange');
+  var onVisibilityChange = function () {
+    if (!document[hiddenProperty]) {
+      if (!sessionStorage.bgmusic || sessionStorage.bgmusic == 'play') {
+        audio.play();
+      }
+    } else {
+      audio.pause();
+    }
+  }
+  document.addEventListener(visibilityChangeEvent, onVisibilityChange);
+  // --------- Công tắc nhạc nền ----------
+  function triggerBgMusic() {
+    if (!sessionStorage.bgmusic || sessionStorage.bgmusic == 'play') {
+      playBgMusic(false);
+    } else {
+      playBgMusic(true);
+    }
+  }
+  // --------- Phát nhạc và tạm dừng ----------
+  function playBgMusic(val) {
+    if (val) {
+      audio.play();
+      sessionStorage.bgmusic = 'play';
+      document.getElementById('status').innerHTML = 'Music ~ Stop';
+    } else {
+      audio.pause();
+      sessionStorage.bgmusic = 'pause';
+      document.getElementById('status').innerHTML = 'Âm nhạc ~ Walk up 🈶';
+    }
+  }
+</script>
+
+</html>

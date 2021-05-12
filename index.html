@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Để tôi xem ai sẽ đến đây 😜</title>
+
+  <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+  <div class="materialContainer">
+    <div class="box">
+      <div class="title">Vâng vâng, mật mã🔐</div>
+      <div class="input">
+        <label for="username">Bạn là ai</label>
+        <input type="text" name="username" id="username">
+        <span class="spin"></span>
+      </div>
+      <div class="input">
+        <label for="password">Kỷ niệm của chúng ta</label>
+        <input type="password" name="password" id="password">
+        <span class="spin"></span>
+      </div>
+      <div class="button login">
+        <button onclick="login()">
+          <span>Khớp mã bí mật 🔓</span>
+          <i class="fa fa-check"></i>
+        </button>
+      </div>
+      <a href="javascript:" class="pass-forgot" onclick="forgot()">Quên dấu hiệu bí mật và nhấp vào đây 😭</a>
+    </div>
+
+  </div>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/index.js"></script>
+  <script>
+    function forgot() {
+      alert("Bạn đang làm gì vậy? Hãy đến và hỏi tôi 🐷");
+    }
+
+    function login() {
+      var username = document.getElementById("username");
+      var pass = document.getElementById("password");
+      if (username.value == "") {
+        alert("Hãy để tôi xem bạn tên gì 😲");
+        username.focus();
+        return;
+      } else if (pass.value == "") {
+        alert("Hãy nhớ lại ngày đầu tiên của chúng ta😘");
+        return;
+      } else if ((pass.value == "23032021") && (username.value == "方梓华" || "Dora" || "dora" || "方小姐" || "方宝宝")) {
+        alert("Xác minh thành công ✅ Ding Dong có một lá thư");
+        window.location.href = "main.html";
+      } else {
+        alert("Không xác minh được ❎ bạn là ai ❓ ❓ ❓ ");
+        window.location.href = "Error_Lemon.html";
+        return;
+      }
+      return true;
+    }
+  </script>
+
+</body>
+
+</html>
